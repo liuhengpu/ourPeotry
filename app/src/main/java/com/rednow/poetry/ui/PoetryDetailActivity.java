@@ -124,7 +124,6 @@ public class PoetryDetailActivity extends RxBaseActivity {
                                         playClick(readstring);
                                     }
                                 });
-
                             }
                         });
                          mSectionedRecyclerViewAdapter.addSection(poetryDetailHeaderSelection);
