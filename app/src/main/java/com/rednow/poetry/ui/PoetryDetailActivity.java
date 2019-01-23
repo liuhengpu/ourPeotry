@@ -248,7 +248,6 @@ public class PoetryDetailActivity extends RxBaseActivity {
 //			/**
 //			 * 只保存音频不进行播放接口,调用此接口请注释startSpeaking接口
 //			 * text:要合成的文本，uri:需要保存的音频全路径，listener:回调接口
-
 //			*/
 //			String path = Environment.getExternalStorageDirectory()+"/tts.ico";
 //			int code = mTts.synthesizeToUri(text, path, mTtsListener);
