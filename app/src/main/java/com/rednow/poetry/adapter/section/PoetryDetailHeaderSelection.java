@@ -210,11 +210,11 @@ public class PoetryDetailHeaderSelection extends StatelessSection {
                 ToastUtils.showToast("赞 +1");
             }
         });
-
+        String read =  poetry.getTag().toString().replace("|", "，");
         viewHolder.iv_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                headItemCallBack.doread("唐斯三百首");
+                headItemCallBack.doread(read);
             }
         });
     }

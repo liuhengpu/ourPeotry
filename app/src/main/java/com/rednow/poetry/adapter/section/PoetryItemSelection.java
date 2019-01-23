@@ -215,6 +215,7 @@ public class PoetryItemSelection extends StatelessSection {
             }
 
         });
+
         viewHolder.praiseTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

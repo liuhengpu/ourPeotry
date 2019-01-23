@@ -121,7 +121,7 @@ public class PoetryDetailActivity extends RxBaseActivity {
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        playClick("画，王维，唐代，远看山有色，近听水无声。春去花还在，人来鸟不惊。");
+                                        playClick(readstring);
                                     }
                                 });
 
