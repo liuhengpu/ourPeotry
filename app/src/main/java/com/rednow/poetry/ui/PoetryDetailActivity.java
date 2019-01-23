@@ -102,6 +102,7 @@ public class PoetryDetailActivity extends RxBaseActivity {
 
     }
     private PoetryDetailHeaderSelection        poetryDetailHeaderSelection;
+    //数据加载
     private void loadData() {
         RetrofitHelper.getPoetryApi().getPoetryDetail(id)
                 .compose(bindToLifecycle())
