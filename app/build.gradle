@@ -14,9 +14,15 @@ android {
         versionName "1.0"
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
     signingConfigs {
         config {
-            storeFile file("vakey.jks")
+            storeFile file("peotry.jks")
             storePassword "va123456"
             keyAlias "va"
             keyPassword "va123456"
@@ -30,7 +36,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
         }
@@ -43,11 +49,7 @@ android {
         abortOnError false
     }
 
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
+
 }
 
 dependencies {

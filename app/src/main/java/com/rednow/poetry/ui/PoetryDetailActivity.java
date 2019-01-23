@@ -100,6 +100,7 @@ public class PoetryDetailActivity extends RxBaseActivity {
 
         loadData();
 
+
     }
     private PoetryDetailHeaderSelection        poetryDetailHeaderSelection;
     //数据加载
