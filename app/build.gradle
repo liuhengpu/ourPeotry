@@ -3,14 +3,7 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'yy'
-            keyPassword '1234567890'
-            storeFile file('E:/StudioWorkSpace/work/doc/sign/test.keystore')
-            storePassword '1234567890'
-        }
-    }
+
     compileSdkVersion 26
     buildToolsVersion "26.0.3"
     defaultConfig {
@@ -20,10 +13,26 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        config {
+            storeFile file("vakey.jks")
+            storePassword "va123456"
+            keyAlias "va"
+            keyPassword "va123456"
+        }
+    }
     buildTypes {
+        debug {
+            debuggable false
+            jniDebuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
     compileOptions {
