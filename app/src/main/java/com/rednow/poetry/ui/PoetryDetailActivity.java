@@ -122,7 +122,6 @@ public class PoetryDetailActivity extends RxBaseActivity {
                                     @Override
                                     public void run() {
                                         playClick(readstring);
-
                                     }
                                 });
 
