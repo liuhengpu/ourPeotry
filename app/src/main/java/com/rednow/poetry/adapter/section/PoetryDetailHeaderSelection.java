@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.CheckBox;
@@ -19,6 +20,7 @@ import com.rednow.poetry.R;
 import com.rednow.poetry.entity.PoetryDetail;
 import com.rednow.poetry.utils.CommonUtil;
 import com.rednow.poetry.utils.SharedPreference.PoetryPreference;
+import com.rednow.poetry.utils.StringUtils;
 import com.rednow.poetry.utils.ToastUtils;
 import com.rednow.poetry.widget.CustomHtmlTagHandler;
 import com.rednow.poetry.widget.sectioned.StatelessSection;
@@ -74,19 +76,23 @@ public class PoetryDetailHeaderSelection extends StatelessSection {
     public TopItemPoetryDetailHolder viewHolder;
     @Override
     public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-       viewHolder = (TopItemPoetryDetailHolder) holder;
-
+        viewHolder = (TopItemPoetryDetailHolder) holder;
         viewHolder.nameStrTv.setText(poetry.getNameStr());
 
         /** 设置行间距*/
         viewHolder.contTv.setLineSpacing(CommonUtil.dpToPx(8),1);
-
+          /**
+           * 两端对齐标签
+           * <p style="text-align:justify; text-justify:inter-ideograph;>
+           * */
         Spanned spanned = Html.fromHtml(poetry.getCont());
 
+        //去掉标签的文本
+       String  strip =  StringUtils.stripHtml(poetry.getCont());
+       Log.e(StringUtils.LIU,"strip--"+strip);
         if (null == CommonUtil.getSpannable(spanned.toString(),selectedStr,mContext.getResources().getColor(R.color.tag_selected_color))){
             viewHolder.contTv.setText(Html.fromHtml(poetry.getCont()).toString());
         }else viewHolder.contTv.setText(CommonUtil.getSpannable(spanned.toString(),selectedStr,mContext.getResources().getColor(R.color.tag_selected_color)));
-
 
         viewHolder.contTv.setTextSize(TypedValue.COMPLEX_UNIT_SP, PoetryPreference.getInstence().getFontSize());
         viewHolder.shangTv.setTextSize(TypedValue.COMPLEX_UNIT_SP, PoetryPreference.getInstence().getFontSize());
@@ -94,7 +100,6 @@ public class PoetryDetailHeaderSelection extends StatelessSection {
 
         /** 给cont添加文字复制功能*/
         setSelectableTextHelper(viewHolder.contTv);
-
 
         viewHolder.authorTv.setText(poetry.getAuthor());
         viewHolder.dynastyTv.setText(poetry.getChaodai());
@@ -210,17 +215,17 @@ public class PoetryDetailHeaderSelection extends StatelessSection {
                 ToastUtils.showToast("赞 +1");
             }
         });
-        String read =  poetry.getTag().toString().replace("|", "，");
+
         viewHolder.iv_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                headItemCallBack.doread(read);
+                if(strip!=null && !strip.equals("")){
+                    headItemCallBack.doread(strip);
+                    Log.e(StringUtils.LIU,"read--"+poetry.getCont());
+                }
             }
         });
     }
-     public void setView(ImageView imageView,int id){
-         imageView.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.iv_pause));
-     }
 
     private void changeCont(CheckBox yi_box, CheckBox zhu_box, CheckBox shang_box, TextView textView, PoetryDetail.Poetry shiWen, TextView shang, TextView line) {
 

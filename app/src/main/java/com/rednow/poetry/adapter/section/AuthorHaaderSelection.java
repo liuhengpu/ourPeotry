@@ -16,6 +16,7 @@ import com.rednow.poetry.widget.sectioned.StatelessSection;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.codeboy.android.aligntextview.AlignTextView;
 
 /**
  * Created by SnowDragon2015
@@ -108,7 +109,7 @@ public class AuthorHaaderSelection extends StatelessSection {
 
 
         @BindView(R.id.author_brief)
-        TextView authorBriefTv;
+        AlignTextView authorBriefTv;
 
         TopItemViewHolder(View itemView) {
 

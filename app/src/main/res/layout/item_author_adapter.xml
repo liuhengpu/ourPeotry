@@ -34,7 +34,7 @@
 
     </RelativeLayout>
 
-    <TextView
+    <me.codeboy.android.aligntextview.AlignTextView
         android:id="@+id/author_brief"
         android:layout_marginTop="@dimen/margin_15"
         android:textSize="@dimen/default_big_text_size"
@@ -44,7 +44,5 @@
         android:layout_height="wrap_content" />
 
     <include layout="@layout/common_content_bootom_like"/>
-
-
 
 </LinearLayout>

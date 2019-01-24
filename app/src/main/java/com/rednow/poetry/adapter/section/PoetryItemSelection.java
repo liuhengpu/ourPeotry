@@ -194,7 +194,7 @@ public class PoetryItemSelection extends StatelessSection {
 
             }
             viewHolder.layout_tag.setVisibility(View.VISIBLE);
-           // Log.e("liuhengpu","item.getTag"+item.getTag().toString());
+
         }else {
             viewHolder.line1Tv.setVisibility(View.GONE);
             //viewHolder.tagTv.setVisibility(View.GONE);

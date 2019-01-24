@@ -19,6 +19,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.codeboy.android.aligntextview.AlignTextView;
 
 /**
  * Created by SnowDragon2015
@@ -109,7 +110,7 @@ public class AncientItemSelection extends StatelessSection {
         TextView ancientBookNameTv;
 
         @BindView(R.id.ancient_book_brief)
-        TextView bookBriefTv;
+        AlignTextView bookBriefTv;
 
         @BindView(R.id.copy)
         CheckBox copyCkb;

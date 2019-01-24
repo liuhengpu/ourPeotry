@@ -27,28 +27,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
+            android:id="@+id/ll_cont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_10"
+            >
+        <me.codeboy.android.aligntextview.AlignTextView
             android:id="@+id/cont"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
             android:textColor="@color/common_h1"
             android:textSize="@dimen/default_big_text_size"
             android:visibility="visible"
-            tools:text="朝露昙花 咫尺天涯
-人道是黄河十曲
-毕竟东流去
-八千年玉老 一夜枯萎
-问苍天此生何必
-昨夜风吹处 落英听谁细数
-九万里苍穹 御风弄影 谁人与共
-千秋北斗 瑶池寒苦 不若神仙眷侣 百年江湖" />
-
+            tools:text="朝露昙花 咫尺天涯人道是黄河十曲毕竟东流去" />
+        </LinearLayout>
         <TextView
             android:id="@+id/id_assist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cont"
+            android:layout_below="@id/ll_cont"
             android:background="@color/common_bg_content"
             android:gravity="center_horizontal|bottom"
             android:paddingBottom="@dimen/padding_3"
@@ -61,7 +60,7 @@
         <TextView
             android:id="@+id/shape"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="40dp"
             android:layout_alignBottom="@id/id_assist"
             android:background="@drawable/shape_look_more"
             android:gravity="center_horizontal|bottom"
@@ -72,7 +71,7 @@
             android:id="@+id/look_more"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cont"
+            android:layout_below="@id/ll_cont"
             android:background="@color/common_bg_content"
             android:gravity="right|bottom|center_vertical"
             android:paddingBottom="@dimen/padding_3"

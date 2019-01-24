@@ -20,6 +20,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.codeboy.android.aligntextview.AlignTextView;
 
 /**
  * Created by SnowDragon2015
@@ -106,8 +107,6 @@ public class AuthorDetailItemSelection extends StatelessSection {
             viewHolder.assitsTv.setVisibility(View.GONE);
         }
 
-
-
     }
 
      class ItemViewHolder extends RecyclerView.ViewHolder {
@@ -116,7 +115,7 @@ public class AuthorDetailItemSelection extends StatelessSection {
          TextView nameStrTv;
 
          @BindView(R.id.cont)
-         TextView contTv;
+         AlignTextView contTv;
 
          @BindView(R.id.shape)
          TextView shapeTv;

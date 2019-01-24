@@ -92,7 +92,6 @@ public class MainAncientBooksFragment extends RxLazyFragment {
 
         refreshLayout.setOnRefreshListener(refreshLayout1 -> {
 
-
             loadData();
         });
         refreshLayout.setOnLoadmoreListener(refreshLayout1 -> {

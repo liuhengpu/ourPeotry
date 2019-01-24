@@ -140,7 +140,7 @@ public class MainPoetryFragment extends RxLazyFragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(poem -> {
-                   // Log.e("liuhengpu", poem.getShiwens().get(0).toString());
+
 
                     /** 刷新数据 或加载更多数据*/
                     if (poem.getShiwens().size() > 0) {
@@ -168,9 +168,7 @@ public class MainPoetryFragment extends RxLazyFragment {
 
                 });
 
-
     }
-
 
     public void initEmptyView(String string) {
 

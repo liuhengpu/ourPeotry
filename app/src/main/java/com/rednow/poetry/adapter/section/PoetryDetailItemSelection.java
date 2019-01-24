@@ -21,6 +21,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.codeboy.android.aligntextview.CBAlignTextView;
 
 /**
  * Created by SnowDragon2015
@@ -132,6 +133,7 @@ public class PoetryDetailItemSelection extends StatelessSection {
 
             super(itemView);
             ButterKnife.bind(this, itemView);
+
         }
     }
 }

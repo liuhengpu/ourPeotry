@@ -29,6 +29,7 @@ import com.rednow.poetry.api.RetrofitHelper;
 import com.rednow.poetry.base.RxBaseActivity;
 import com.rednow.poetry.entity.PoetryDetail;
 import com.rednow.poetry.utils.CommonUtil;
+import com.rednow.poetry.utils.StringUtils;
 import com.rednow.poetry.widget.CustomEmptyView;
 import com.rednow.poetry.widget.SpaceItemDecoration;
 import com.rednow.poetry.widget.sectioned.SectionedRecyclerViewAdapter;
@@ -100,7 +101,6 @@ public class PoetryDetailActivity extends RxBaseActivity {
 
         loadData();
 
-
     }
     private PoetryDetailHeaderSelection        poetryDetailHeaderSelection;
     //数据加载
@@ -119,7 +119,7 @@ public class PoetryDetailActivity extends RxBaseActivity {
                             @Override
                             public void doread(String readstring) {
 
-                                toast("click"+readstring);
+                               // toast("click");
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -316,7 +316,7 @@ public class PoetryDetailActivity extends RxBaseActivity {
             toast(String.format(getString(R.string.tts_toast_format), mPercentForBuffering, mPercentForPlaying));
             //showTip(String.format(getString(R.string.tts_toast_format), mPercentForBuffering, mPercentForPlaying));
 
-            Log.e("liuhengpu",""+beginPos+"'"+endPos);
+           // Log.e(StringUtils.LIU,""+beginPos+"'"+endPos);
         }
 
         @Override

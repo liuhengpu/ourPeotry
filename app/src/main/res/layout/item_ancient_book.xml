@@ -14,20 +14,28 @@
       android:textSize="@dimen/default_bit_text_size_20"
       android:layout_width="match_parent"
       android:layout_height="wrap_content" />
-    <TextView
+  <LinearLayout
+      android:id="@+id/ll_bref"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_marginTop="@dimen/margin_15"
+      android:layout_below="@+id/ancient_book_name"
+      >
+    <me.codeboy.android.aligntextview.AlignTextView
         android:id="@+id/ancient_book_brief"
-        android:layout_below="@+id/ancient_book_name"
-        android:layout_marginTop="@dimen/margin_15"
         android:textSize="@dimen/default_big_text_size"
+        android:lineSpacingExtra="8dp"
+        android:lines="4"
         android:textColor="@color/black"
         tools:text="《论语》是儒家学派的经典著作质疑，由孔子的地址节气再传弟子编撰而成。通行本《论语》共二十篇。"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
+  </LinearLayout>
     <include
         layout="@layout/common_content_bootom_like"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ancient_book_brief" />
+        android:layout_height="40dp"
+        android:layout_below="@+id/ll_bref" />
 
 </RelativeLayout>
