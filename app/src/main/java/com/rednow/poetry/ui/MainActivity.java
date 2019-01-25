@@ -3,18 +3,29 @@ package com.rednow.poetry.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 
 import com.rednow.poetry.R;
 import com.rednow.poetry.adapter.MainPagerAdapter;
+import com.rednow.poetry.api.RetrofitHelper;
 import com.rednow.poetry.base.RxBaseActivity;
+import com.rednow.poetry.entity.TestAuthor;
+import com.rednow.poetry.utils.StringUtils;
 import com.rednow.poetry.utils.ToastUtils;
 import com.rednow.poetry.widget.search.PopupSearchView;
 import com.flyco.tablayout.SlidingTabLayout;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends RxBaseActivity {
 
@@ -36,6 +47,8 @@ public class MainActivity extends RxBaseActivity {
 
     @Override
     protected void initView(Bundle savedInstancedState) {
+        //test
+        //loadData();
 
         MainPagerAdapter mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager(), getApplicationContext());
         viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(), this));
@@ -45,9 +58,10 @@ public class MainActivity extends RxBaseActivity {
         viewPager.setCurrentItem(0);
 
         slidingTabLayout.setViewPager(viewPager);
-
         slidingTabLayout.showDot(0);
         slidingTabLayout.getMsgView(0).setVisibility(View.GONE);
+
+
 
     }
 
@@ -93,5 +107,29 @@ public class MainActivity extends RxBaseActivity {
         }
     }
 
+    private void loadData() {
+        RetrofitHelper.getPoetryApiNew().getAuthor()
+                .compose(bindToLifecycle())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<TestAuthor>>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.e(StringUtils.LIU,"--Completed--");
+                    }
+                    @Override
+                    public void onError(Throwable throwable) {
+                        Log.e(StringUtils.LIU,"----"+throwable.toString());
+                    }
+                    @Override
+                    public void onNext(List<TestAuthor> testAuthors) {
+
+                        for (TestAuthor auth:testAuthors) {
+                            Log.e(StringUtils.LIU,"----"+auth.getName());
+                        }
+                    }
+                });
+
+    }
 
 }

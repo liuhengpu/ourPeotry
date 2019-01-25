@@ -1,6 +1,8 @@
 package com.rednow.poetry.adapter.section;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextUtils;
@@ -13,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 import com.rednow.poetry.R;
 import com.rednow.poetry.entity.Poem;
 import com.rednow.poetry.ui.PoetryDetailActivity;
@@ -62,6 +66,7 @@ public class PoetryItemSelection extends StatelessSection {
         return new ItemPoetryHolder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         ItemPoetryHolder viewHolder = (ItemPoetryHolder) holder;
@@ -173,7 +178,6 @@ public class PoetryItemSelection extends StatelessSection {
             //viewHolder.tagTv.setVisibility(View.VISIBLE);
            // viewHolder.tagTv.setText(item.getTag().toString().replace("|", "，"));
              String[]  strTags =  item.getTag().split("[|]");
-
             for(int i =0;i<strTags.length;i++){
                 //只取一部分标签
                 if( i<5 && i >=0){
@@ -189,7 +193,7 @@ public class PoetryItemSelection extends StatelessSection {
                     tv.setBackground(mContext.getResources().getDrawable(R.drawable.button_shape));
                     viewHolder.layout_tag.addView(tv,lp2);
                 }else{
-                  return;
+                     return;
                 }
 
             }
@@ -222,7 +226,7 @@ public class PoetryItemSelection extends StatelessSection {
                 ToastUtils.showToast("赞 +1");
             }
         });
-
+        //viewHolder.thumb_button.setLiked(false);
     }
 
     private void changeCont(CheckBox yi_box, CheckBox zhu_box, CheckBox shang_box, TextView textView, Poem.ShiWen shiWen, TextView shang, TextView line) {
@@ -315,7 +319,8 @@ public class PoetryItemSelection extends StatelessSection {
         @BindView(R.id.line1)
         TextView line1Tv;
 
-
+        @BindView(R.id.thumb_button)
+        LikeButton thumb_button;
         public ItemPoetryHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

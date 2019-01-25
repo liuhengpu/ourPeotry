@@ -9,7 +9,10 @@ import com.rednow.poetry.entity.Poetry;
 import com.rednow.poetry.entity.PoetryDetail;
 import com.rednow.poetry.entity.Recommend;
 import com.rednow.poetry.entity.SearchEntity;
+import com.rednow.poetry.entity.TestAuthor;
 import com.rednow.poetry.entity.Wisdom;
+
+import java.util.List;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -143,8 +146,9 @@ public interface PoetryService {
 
 
 
-
-
-
+    /**
+     * 作者和简介*/
+    @GET("json/authors.song.json")
+    Observable<List<TestAuthor>> getAuthor();
 
 }

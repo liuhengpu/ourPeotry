@@ -15,4 +15,6 @@ public class ApiConstants {
 
     public static final String BASE_GUSHIWEN_URL = "http://app.gushiwen.org/";
 
+    public static final String BASE_URL_NEW= "https://raw.githubusercontent.com/chinese-poetry/chinese-poetry/master/";
+
 }

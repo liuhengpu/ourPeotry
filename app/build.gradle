@@ -81,4 +81,6 @@ dependencies {
     compile files('libs/Msc.jar')
 
     compile 'me.codeboy.android:align-text-view:2.3.2'
+    compile 'com.github.jd-alexander:LikeButton:0.2.3'
+
 }

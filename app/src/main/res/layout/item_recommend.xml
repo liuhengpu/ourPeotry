@@ -77,8 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/shang"
         android:paddingTop="@dimen/margin_10"
-        android:text="1、谷向阳．中华古诗文规范读本（小学七分册）：时代文艺出版社，2001年：第113页
-        2、李平收、 张耕．学生版《唐宋词三百首》：华语教学出版社，2001年：第295页"
+        android:text="1、谷向阳．中华古诗文规范读本（小学七分册）：时代文艺出版社，2001年：第113页"
         android:textColor="@color/gray"
         android:textSize="@dimen/default_tiny_text_size" />
 

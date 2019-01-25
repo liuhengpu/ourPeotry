@@ -22,11 +22,11 @@ import com.rednow.poetry.widget.CustomEmptyView;
 import com.rednow.poetry.widget.TagFlowPopupRelativeLayout;
 
 /**
- * Created by SnowDragon2015
+ *
  * <p>
  * 2017/9/14
  * <p>
- * Github ：https://github.com/SnowDragon2015
+ *
  */
 public class AuthorAdapter extends BaseRecycleViewAdapter<Poet.Author> {
     /**
@@ -39,7 +39,6 @@ public class AuthorAdapter extends BaseRecycleViewAdapter<Poet.Author> {
     }
 
     private OnClickTagListener onClickTagListener;
-
 
     @Override
     public BaseViewHolder OncreateViewHolder(ViewGroup viewGroup, int viewType) {

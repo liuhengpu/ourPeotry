@@ -46,7 +46,6 @@ public class RetrofitHelper {
 
 
     public static PoetryService getPoetryGuAPI() {
-
         return createApi(PoetryService.class, ApiConstants.BASE_GUSHIWEN_URL);
     }
 
@@ -54,7 +53,9 @@ public class RetrofitHelper {
     public static PoetryService getPoetryApi() {
         return createApi(PoetryService.class, ApiConstants.BASE_URL);
     }
-
+    public static PoetryService getPoetryApiNew() {
+        return createApi(PoetryService.class, ApiConstants.BASE_URL_NEW);
+    }
     /**
      * 根据传入的baseUrl，和api创建retrofit
      *
