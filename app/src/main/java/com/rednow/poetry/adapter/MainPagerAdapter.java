@@ -14,8 +14,6 @@ import com.rednow.poetry.ui.mainfragment.MainRecommendFragment;
 import com.rednow.poetry.ui.mainfragment.MainWisdomFragment;
 import com.rednow.poetry.ui.mainfragment.TestFragment;
 
-import junit.framework.Test;
-
 
 public class MainPagerAdapter extends FragmentPagerAdapter {
 

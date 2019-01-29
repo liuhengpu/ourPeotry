@@ -5,13 +5,14 @@ apply plugin: 'com.jakewharton.butterknife'
 android {
 
     compileSdkVersion 26
-    buildToolsVersion "26.0.3"
+    buildToolsVersion '26.0.3'
     defaultConfig {
         applicationId "com.rednow.poetry"
         minSdkVersion 18
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
 
     sourceSets {
@@ -49,11 +50,10 @@ android {
         abortOnError false
     }
 
-
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile  fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:design:26.1.0'
     compile 'com.jakewharton:butterknife:8.6.0'
@@ -61,7 +61,7 @@ dependencies {
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
     compile 'com.kyleduo.switchbutton:library:1.4.6'
-    /*compile 'org.jsoup:jsoup:1.8.3'*/
+    //compile 'org.jsoup:jsoup:1.8.3'
     compile 'com.facebook.stetho:stetho:1.4.1'
     compile 'com.facebook.stetho:stetho-okhttp3:1.4.1'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
@@ -83,4 +83,5 @@ dependencies {
     compile 'me.codeboy.android:align-text-view:2.3.2'
     compile 'com.github.jd-alexander:LikeButton:0.2.3'
 
+    compile 'com.android.support:cardview-v7:26.1.0'
 }

@@ -117,10 +117,6 @@
         <activity android:name=".ui.AncientBookDetailContentActivity"
             android:screenOrientation="portrait"/>
 
-
-        <activity android:name=".ui.TestActivity"
-            android:screenOrientation="portrait"/>
-
     </application>
 
 </manifest>

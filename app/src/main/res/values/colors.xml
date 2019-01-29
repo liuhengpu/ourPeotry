@@ -54,7 +54,7 @@
     <color name="select_bg_color_my">#e8e2d6</color>
    <!-- <color name="green_a">#923d3a</color>-->
     <!---->
-
+    <color name="bg_tran"> #00000000</color>
 
     <!-- my背景色-->
     <color name="my_bg">#FFFFFF</color>

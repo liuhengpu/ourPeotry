@@ -89,7 +89,6 @@ public class MainActivity extends RxBaseActivity {
         return true;
     }
 
-
     /**
      * 双击退出App
      */

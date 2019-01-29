@@ -102,4 +102,13 @@
         <item>楠楠—女童、中、普通话</item>
         <item>老孙—男老、中、普通话</item>
     </string-array>
+
+    <string name="title_1">唐诗一</string>
+    <string name="title_2">唐诗二</string>
+    <string name="title_3">唐诗三</string>
+    <string name="title_4">唐诗四</string>
+
+    <string name="text_1">床前明月光，疑是地上霜\n举头望明月，低头思故乡</string>
+
+    <string name="into">进小店</string>
 </resources>
