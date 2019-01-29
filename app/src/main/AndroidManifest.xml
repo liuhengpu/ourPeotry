@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.rednow.poetry">
 
     <supports-screens
@@ -39,7 +40,8 @@
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
             android:name=".ui.SplashActivity"
             android:label="@string/app_name"
@@ -115,6 +117,9 @@
         <activity android:name=".ui.AncientBookDetailContentActivity"
             android:screenOrientation="portrait"/>
 
+
+        <activity android:name=".ui.TestActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 

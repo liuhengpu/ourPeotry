@@ -64,7 +64,7 @@ public class SplashActivity extends Activity   {
 //    }
 
     private void enterHomeActivity() {
-        Intent intent = new Intent(this, com.rednow.poetry.ui.MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.anim_fade_in,R.anim.anim_fade_out);
         finish();

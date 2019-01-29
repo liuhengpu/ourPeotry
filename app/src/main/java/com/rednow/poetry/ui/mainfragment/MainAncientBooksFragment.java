@@ -2,6 +2,7 @@ package com.rednow.poetry.ui.mainfragment;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.rednow.poetry.R;
@@ -26,11 +27,11 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by SnowDragon2015
+ *
  * <p>
  * 2017/9/11
  * <p>
- * Github ：https://github.com/SnowDragon2015
+ *
  */
 public class MainAncientBooksFragment extends RxLazyFragment {
 
@@ -46,13 +47,11 @@ public class MainAncientBooksFragment extends RxLazyFragment {
     SectionedRecyclerViewAdapter mSectionedRecyclerViewAdapter;
     private List<GuWen.Ancient> ancientList = new ArrayList<GuWen.Ancient>();
 
-
     private static int PAGE_INDEX_ANCIENT_BOOK = 1;
 
     public static MainAncientBooksFragment newIntance() {
 
         return new MainAncientBooksFragment();
-
     }
 
     @Override
@@ -65,14 +64,14 @@ public class MainAncientBooksFragment extends RxLazyFragment {
     protected void finishViewCreated(Bundle savedInstanceState) {
         isPrepared = true;
         lazyLoad();
+
+        Log.e("liuhengpu","finishViewCreated");
     }
 
     @Override
     protected void lazyLoad() {
         if (!isPrepared || !isVisible)
             return;
-
-
         initRecyclerView();
         loadData();
         isPrepared = false;
@@ -86,12 +85,11 @@ public class MainAncientBooksFragment extends RxLazyFragment {
         mSectionedRecyclerViewAdapter = new SectionedRecyclerViewAdapter();
         recyclerView.setAdapter(mSectionedRecyclerViewAdapter);
 
-        //  ancientBookAdapter.setOnClickTagListener(tagName -> refreshLayout.autoRefresh(1));
+        //ancientBookAdapter.setOnClickTagListener(tagName -> refreshLayout.autoRefresh(1));
 
         setSmartRefreshLayout(refreshLayout);
 
         refreshLayout.setOnRefreshListener(refreshLayout1 -> {
-
             loadData();
         });
         refreshLayout.setOnLoadmoreListener(refreshLayout1 -> {
@@ -124,6 +122,7 @@ public class MainAncientBooksFragment extends RxLazyFragment {
 
                     if (ancient != null && ancient.getGuwen().size() > 0) {
 
+                        Log.e("liuhengpu","ancientList::"+ancientList.size());
                         if (PAGE_INDEX_ANCIENT_BOOK == 1) ancientList.clear();
                         ancientList.addAll(ancient.getGuwen());
                         finishTask(ancientList, null);
@@ -133,7 +132,6 @@ public class MainAncientBooksFragment extends RxLazyFragment {
                             finishTask(ancientList, PoetryPreference.getInstence().getTagAncient() + " 暂无数据");
                         }
                     }
-
 
                 }, throwable -> {
 

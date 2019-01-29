@@ -30,7 +30,6 @@ public abstract class RxLazyFragment extends RxFragment {
     protected FragmentActivity activity;
     public Activity activitySource;
 
-
     // 标志位 标志已经初始化完成。
     protected boolean isPrepared;
 

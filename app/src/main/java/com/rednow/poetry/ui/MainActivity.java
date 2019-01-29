@@ -39,7 +39,6 @@ public class MainActivity extends RxBaseActivity {
 
     private PopupSearchView popupSearchView;
 
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -49,19 +48,16 @@ public class MainActivity extends RxBaseActivity {
     protected void initView(Bundle savedInstancedState) {
         //test
         //loadData();
-
         MainPagerAdapter mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager(), getApplicationContext());
-        viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(), this));
+        //viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(), this));
 
-        viewPager.setOffscreenPageLimit(5);
+        viewPager.setOffscreenPageLimit(1);
         viewPager.setAdapter(mainPagerAdapter);
         viewPager.setCurrentItem(0);
 
         slidingTabLayout.setViewPager(viewPager);
         slidingTabLayout.showDot(0);
         slidingTabLayout.getMsgView(0).setVisibility(View.GONE);
-
-
 
     }
 

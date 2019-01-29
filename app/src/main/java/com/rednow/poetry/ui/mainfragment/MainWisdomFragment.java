@@ -22,11 +22,11 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by SnowDragon2015
+ *
  * <p>
  * 2017/9/11
  * <p>
- * Github ：https://github.com/SnowDragon2015
+ *
  */
 public class MainWisdomFragment extends RxLazyFragment {
     @BindView(R.id.refreshLayout)
@@ -70,7 +70,6 @@ public class MainWisdomFragment extends RxLazyFragment {
     protected void lazyLoad() {
         if (!isPrepared || !isVisible)
             return;
-
 
         initRecyclerView();
         loadData();
@@ -148,7 +147,6 @@ public class MainWisdomFragment extends RxLazyFragment {
                         wisdomAdapter.clearAll();
                         wisdomAdapter.removeFooterView();
                         wisdomAdapter.addFooterView(foot_view);
-
                         wisdomAdapter.notifyDataSetChanged();
 
                     } else hideEmptyView();
@@ -162,7 +160,6 @@ public class MainWisdomFragment extends RxLazyFragment {
                         wisdomAdapter.addFooterView(foot_view);
                         wisdomAdapter.notifyDataSetChanged();
                     }
-
 
                     hideEmptyView();
 
