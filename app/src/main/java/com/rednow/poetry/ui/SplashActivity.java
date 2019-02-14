@@ -25,13 +25,17 @@ import android.widget.Toast;
 
 import com.rednow.poetry.R;
 import com.rednow.poetry.utils.SharedPreference.PoetryPreference;
+import com.rednow.poetry.utils.ToastUtils;
 import com.rednow.poetry.view.card.CardFragmentPagerAdapter;
 import com.rednow.poetry.view.card.CardItem;
 import com.rednow.poetry.view.card.CardPagerAdapter;
 import com.rednow.poetry.view.card.ShadowTransformer;
-
 import java.util.ArrayList;
 import java.util.List;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by SnowDragon on 2017/7/3.
@@ -46,22 +50,32 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     private ShadowTransformer mCardShadowTransformer;
     private CardFragmentPagerAdapter mFragmentCardAdapter;
     private ShadowTransformer mFragmentCardShadowTransformer;
-
+    Unbinder unbinder;
     private boolean mShowingFragments = false;
+    @BindView(R.id.bt1)
+    Button  button1;
+    @BindView(R.id.bt2)
+    Button  button2;
+    @BindView(R.id.bt3)
+    Button  button3;
+    @BindView(R.id.bt4)
+    Button  button4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        unbinder = ButterKnife.bind(this);
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mButton = (Button) findViewById(R.id.cardTypeBtn);
 //        ((CheckBox) findViewById(R.id.checkBox)).setOnCheckedChangeListener(this);
         mButton.setOnClickListener(this);
         mButton.setVisibility(View.INVISIBLE);
         mCardAdapter = new CardPagerAdapter();
-        mCardAdapter.addCardItem(new CardItem(R.string.title_1, R.string.text_1));
-        mCardAdapter.addCardItem(new CardItem(R.string.title_2, R.string.text_1));
-        mCardAdapter.addCardItem(new CardItem(R.string.title_3, R.string.text_1));
-        mCardAdapter.addCardItem(new CardItem(R.string.title_4, R.string.text_1));
+        CardItem   cardItem =    new CardItem(R.string.title_1, R.string.text_1);
+         for(int i=0;i<4;i++){
+             mCardAdapter.addCardItem(cardItem);
+         }
+
         mFragmentCardAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(),
                 dpToPixels(2, this));
 
@@ -78,26 +92,24 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if(position==3){
-                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                           enterHomeActivity();
-                        }
-                    },1000);
-                }
             }
-
             @Override
             public void onPageSelected(int position) {
-
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
 
             }
         });
+
+        //设置字体
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                enterHomeActivity();
+            }
+        },6000);
     }
     private void enterHomeActivity() {
         Intent intent = new Intent(this, MainActivity.class);
@@ -110,6 +122,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if (!mShowingFragments) {
             mButton.setText("Views");
+
             mViewPager.setAdapter(mFragmentCardAdapter);
             mViewPager.setPageTransformer(false, mFragmentCardShadowTransformer);
         } else {
@@ -117,8 +130,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             mViewPager.setAdapter(mCardAdapter);
             mViewPager.setPageTransformer(false, mCardShadowTransformer);
         }
-
-        mShowingFragments = !mShowingFragments;
+           mShowingFragments = !mShowingFragments;
     }
 
     public static float dpToPixels(int dp, Context context) {
@@ -130,5 +142,12 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         mCardShadowTransformer.enableScaling(b);
         mFragmentCardShadowTransformer.enableScaling(b);
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+
+    }
+
 }
 

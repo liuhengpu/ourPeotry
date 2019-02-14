@@ -13,6 +13,7 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by SnowDragon on 2017/7/4.
@@ -31,7 +32,7 @@ public abstract class RxBaseActivity extends RxAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
 
-        //设置状态栏颜色
+           //设置状态栏颜色
 //        if (statusBarColor == 0) {
 //            statusBarView = StatusBarCompat.compat(this, ContextCompat.getColor(this, R.color.colorPrimaryDark));
 //        } else if (statusBarColor != -1) {
@@ -50,7 +51,6 @@ public abstract class RxBaseActivity extends RxAppCompatActivity {
         initView(savedInstanceState);
 
         mNowMode = PoetryPreference.getInstence().geSwidthMode();
-
 
     }
 
@@ -92,11 +92,14 @@ public abstract class RxBaseActivity extends RxAppCompatActivity {
         super.onDestroy();
         unbinder.unbind();
 
-
     }
 
     public void toast(String message) {
         ToastUtils.showSingleToast(message);
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 }

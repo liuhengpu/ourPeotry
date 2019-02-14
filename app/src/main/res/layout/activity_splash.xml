@@ -40,4 +40,40 @@
         android:paddingRight="@dimen/card_padding"
         android:paddingStart="@dimen/card_padding" />
 
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        >
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="古闻"
+            />
+        <Button
+            android:id="@+id/bt2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="文库"
+            />
+        <Button
+            android:id="@+id/bt3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="创作"
+            android:visibility="gone"
+            />
+        <Button
+            android:id="@+id/bt4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="自己"
+            />
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

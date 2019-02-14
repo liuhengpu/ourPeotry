@@ -13,8 +13,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
-    </style>
 
+    </style>
+    <style name="NewFont" parent="AppTheme.NoActionBar">
+       <!-- <item name="android:fontFamily">@font/fontfamily</item>-->
+    </style>
     <style name="AppTheme.NoActionBar.FullScreen" parent="AppTheme.NoActionBar">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>

@@ -2,6 +2,7 @@ package com.rednow.poetry;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.v7.app.AppCompatDelegate;
 
 
 import com.iflytek.cloud.SpeechUtility;
@@ -17,6 +18,8 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by SnowDragon2015
@@ -40,7 +43,11 @@ public class AncientPoetryApplication extends Application {
         /**初始化下拉刷新和上拉加载*/
         initRefresh();
 
-        initNightMode();
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("font/simsun.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
     }
 
     private void initRefresh(){

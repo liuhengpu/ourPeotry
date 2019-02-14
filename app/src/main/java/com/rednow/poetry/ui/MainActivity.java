@@ -1,8 +1,10 @@
 package com.rednow.poetry.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -17,6 +19,7 @@ import com.rednow.poetry.utils.ToastUtils;
 import com.rednow.poetry.widget.search.PopupSearchView;
 import com.flyco.tablayout.SlidingTabLayout;
 
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +29,7 @@ import butterknife.OnClick;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends RxBaseActivity {
 
@@ -58,7 +62,8 @@ public class MainActivity extends RxBaseActivity {
         slidingTabLayout.setViewPager(viewPager);
         slidingTabLayout.showDot(0);
         slidingTabLayout.getMsgView(0).setVisibility(View.GONE);
-
+        //夜间模式
+        //getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
     }
 
     @OnClick({R.id.click_search, R.id.click_my, R.id.click_recommend})
@@ -67,7 +72,7 @@ public class MainActivity extends RxBaseActivity {
             case R.id.click_search:
                 startActivity(new Intent(MainActivity.this, SearchActivity.class));
                 overridePendingTransition(R.anim.anim_fade_in, R.anim.anim_fade_out);
-               // ToastUtils.showToast("努力开发中....");
+                // ToastUtils.showToast("努力开发中....");
                 break;
             case R.id.click_my:
                 startActivity(new Intent(MainActivity.this, MyActivity.class));

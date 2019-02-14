@@ -290,7 +290,6 @@ public class CommonUtil {
         //  activity.getWindow().setBackgroundDrawable(new ColorDrawable(colorId));
         activity.getWindow().setBackgroundDrawable(new ColorDrawable(0x1f1f1f));
         activity.getWindow().setAttributes(lp);
-
     }
 
     public static void setAppThemeBackgroundAlpha(Activity activity, float bgAlpha, int colorId) {
