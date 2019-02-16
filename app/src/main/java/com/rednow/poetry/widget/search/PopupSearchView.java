@@ -21,18 +21,14 @@ import com.rednow.poetry.R;
 public class PopupSearchView extends PopupWindow {
     private static final String TAG = "PopupSearchView";
 
-
     private boolean isSearchOpen = false;
 
     private SearchViewLayout mSearchViewLayout;
 
-
     public PopupSearchView(Activity context) {
         super(context);
 
-
         mSearchViewLayout = new SearchViewLayout(context);
-
 
         //设置PopupWindow的View
         this.setContentView(mSearchViewLayout);

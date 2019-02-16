@@ -28,8 +28,6 @@ import com.rednow.poetry.R;
 public class SearchViewLayout extends FrameLayout {
 
     private boolean mClearingFocus;
-
-
     private Context mContext;
     public EditText mSearchSrcTextView;
     //MaterialSearchView.SearchViewListener
@@ -62,7 +60,6 @@ public class SearchViewLayout extends FrameLayout {
         mBackBtn = (ImageView) findViewById(R.id.pop_back_btn);
 
         mSearchBtn = (TextView) findViewById(R.id.pop_search_tv);
-
 
         setListener();
 
@@ -199,7 +196,6 @@ public class SearchViewLayout extends FrameLayout {
         }, 100);
 
     }
-
 
     public ImageView getmBackBtn() {
         return mBackBtn;

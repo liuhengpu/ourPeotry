@@ -122,7 +122,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if (!mShowingFragments) {
             mButton.setText("Views");
-
             mViewPager.setAdapter(mFragmentCardAdapter);
             mViewPager.setPageTransformer(false, mFragmentCardShadowTransformer);
         } else {
